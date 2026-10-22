@@ -59,6 +59,7 @@ open index.html          # macOS；Windows 直接双击，或 python3 -m http.se
 ```
 wxnote/
 ├── index.html               # 全部应用（HTML + CSS + JS，单文件）
+├── wxnote-react/            # 同一应用的 Vite + React 工程版
 ├── docs/
 │   ├── architecture.md      # 架构与实现细节
 │   ├── image-hosting.md     # 图床接口实测与接入说明
@@ -70,6 +71,21 @@ wxnote/
 ```
 
 `index.html` 内部按顺序分区：样式 → 骨架 → 状态与存储 → Markdown 解析 → 公众号渲染 → 富文本复制 → 图片管线 → 图床设置 → 交互绑定。
+
+## React 工程版
+
+`wxnote-react/` 是把同一套功能拆成 Vite + React 的工程实现，组件、hooks、纯函数模块分层，带 10 组单测：
+
+```bash
+cd wxnote-react
+npm install
+npm run dev      # 本地开发
+npm run build    # 产物在 dist/
+npm test         # 纯逻辑单测
+```
+
+功能与单文件版一一对等（笔记管理、Markdown、公众号预览、一键发布、图床贴图、base64 折叠、响应式），详见 [wxnote-react/README.md](wxnote-react/README.md)。
+
 
 ## 已知限制
 
